@@ -1,2 +1,2 @@
-packages:
-  - vim
+dotfiles_git: git@github.com:fresus/dotfiles.git
+dotfiles_path: "{{ lookup('env', 'HOME') }}/.dotfiles"
