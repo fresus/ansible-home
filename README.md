@@ -1,6 +1,6 @@
 # ansible-home
 
-- Instalation:
+- Installation:
 
 ```
 git clone https://github.com/fresus/ansible-home 
