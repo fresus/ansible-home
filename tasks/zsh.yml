@@ -1,0 +1,7 @@
+- name: install zsh
+  apt: name=zsh update_cache=yes
+  sudo: yes
+- name: link config
+  command: /usr/bin/xstow prezto
+  args:
+    chdir: "{{ dotfiles_path }}"
