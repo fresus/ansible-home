@@ -1,0 +1,7 @@
+- name: install git
+  apt: name=git update_cache=yes
+  sudo: yes
+- name: link config
+  command: "{{ stow_path }} git"
+  args:
+    chdir: "{{ dotfiles_path }}"
