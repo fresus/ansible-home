@@ -6,9 +6,11 @@
     - vars.yml
   tasks:
     - include: tasks/dotfiles.yml tags=dotfiles,programing,server
+    - include: tasks/ssh.yml tags=ssh,server
     - include: tasks/tmux.yml tags=tmux,server
     - include: tasks/zsh.yml tags=zsh,server
     - include: tasks/vim.yml tags=vim,programing
+    - include: tasks/git.yml tags=git,programing
     - include: tasks/dropbox.yml tags=dropbox,desktop
     - include: tasks/virtualbox.yml tags=virtualbox,desktop 
     - include: tasks/spotify.yml tags=spotify,desktop
