@@ -1,0 +1,7 @@
+- name: install ssh client
+  apt: name=openssh-client update_cache=yes
+  sudo: yes
+- name: link config
+  command: "{{ stow_path }} ssh"
+  args:
+    chdir: "{{ dotfiles_path }}"
