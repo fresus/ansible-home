@@ -2,6 +2,6 @@
   apt: name=vim update_cache=yes
   sudo: yes
 - name: link config
-  command: /usr/bin/xstow vim
+  command: "{{ stow_path }} vim"
   args:
     chdir: "{{ dotfiles_path }}"
