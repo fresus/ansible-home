@@ -1,0 +1,14 @@
+- name: install python packages from system repositories
+  apt: name={{ item }}
+  sudo: yes
+  with_items:
+    - python-dev
+    - python-pip
+- name: install python packages from pypi repositories
+  pip: name={{ item }}
+  sudo: yes
+  with_items:
+    - setuptools
+    - pip
+    - virtualenv
+    - virtualenvwrapper
