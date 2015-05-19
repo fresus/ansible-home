@@ -2,11 +2,21 @@
   apt: name={{ item }}
   sudo: yes
   with_items:
+    - python-dev
+    - python-pip
     - python3-dev
     - python3-pip
-- name: install python packages from pypi repositories
-  pip: name={{ item }} executable=
+
+- name: update pip 
+  pip: name=pip state=latest executable=/usr/bin/{{ item }}
   sudo: yes
   with_items:
-    - virtualenv
-    - virtualenvwrapper
+    - pip
+    - pip3
+
+#- name: install python 3 packages from pypi repositories
+#  pip: name={{ item }} executable=/usr/local/bin/pip3
+#  sudo: yes
+#  with_items:
+#    - virtualenv
+#    - virtualenvwrapper
