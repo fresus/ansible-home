@@ -2,6 +2,9 @@
   apt: name=zsh update_cache=yes
   sudo: yes
 - name: link config
-  command: "/usr/bin/{{ stow_program }} prezto"
+  command: "/usr/bin/{{ stow_program }} zsh"
   args:
     chdir: "{{ dotfiles_path }}"
+- name: change user shell
+  user: name={{ ansible_ssh_user }} shell=/bin/zsh
+  sudo: yes
