@@ -1,5 +1,14 @@
+#- name: steam repo
+#  apt_repository: repo="deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
+#  sudo: yes
 - name: steam repo
-  apt_repository: repo="deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
+  lineinfile: 
+    dest: /etc/apt/sources.list.d/steam.list
+    create: yes
+    mode: 0644
+    owner: root
+    group: root
+    line: "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
   sudo: yes
 - name: steam key
   apt_key: url=http://repo.steampowered.com/steam/signature.gpg
