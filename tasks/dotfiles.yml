@@ -1,2 +1,4 @@
+- name: install stow 
+  apt: name={{ stow_program }} state=present
 - name: clone repo
   git: repo={{ dotfiles_git }} dest={{ dotfiles_path }} accept_hostkey=yes

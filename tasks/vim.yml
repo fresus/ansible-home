@@ -2,8 +2,8 @@
   apt: name=vim-nox update_cache=yes
   sudo: yes
 - name: link config
-  command: "{{ stow_path }} vim"
+  command: "/usr/bin/{{ stow_program }} vim"
   args:
     chdir: "{{ dotfiles_path }}"
-- name: install vim distribution
-  command: 'vim -u "~/.spf13-vim-3/.vimrc.bundles.default" "+set nomore" +BundleInstall "+BundleClean" "+qall"'
+#- name: install vim distribution
+#  command: 'vim +PlugUpgrade +PlugUpdate +qall'

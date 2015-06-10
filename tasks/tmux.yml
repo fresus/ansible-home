@@ -2,6 +2,6 @@
   apt: name=tmux update_cache=yes
   sudo: yes
 - name: link config
-  command: "{{ stow_path }} tmux"
+  command: "/usr/bin/{{ stow_program }} tmux"
   args:
     chdir: "{{ dotfiles_path }}"
