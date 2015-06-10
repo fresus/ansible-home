@@ -1,0 +1,25 @@
+- name: delete main sources.list file
+  file: path=/etc/apt/sources.list state=absent
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: config distro repo
+  apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }} main universe restricted multiverse"
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: config security repo
+  apt_repository: repo="deb http://security.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}-security main universe restricted multiverse"
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: config updates repo
+  apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}-updates main universe restricted multiverse"
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: config backports repo
+  apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}-backports main universe restricted multiverse"
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
