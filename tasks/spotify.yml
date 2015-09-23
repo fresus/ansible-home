@@ -1,9 +1,11 @@
-- name: spotify repo
+- name: config spotify repo
   apt_repository: repo="deb http://repository.spotify.com stable non-free"
   sudo: yes
-- name: spotify key
+
+- name: install spotify key
   apt_key: keyserver=keyserver.ubuntu.com id=94558F59
   sudo: yes
-- name: spotify package
+
+- name: install spotify package
   apt: name=spotify-client update_cache=yes
   sudo: yes

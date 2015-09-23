@@ -1,4 +1,4 @@
-- name: delete main sources.list file
+- name: delete main sources.list
   file: path=/etc/apt/sources.list state=absent
   sudo: yes
   when: ansible_distribution == 'Ubuntu'

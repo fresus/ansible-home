@@ -1,4 +1,4 @@
-- name: install python packages from system repositories
+- name: install python packages
   apt: name={{ item }}
   sudo: yes
   with_items:
@@ -14,7 +14,7 @@
     - pip
     - pip3
 
-#- name: install python 3 packages from pypi repositories
+#- name: install python 3 pypi packages
 #  pip: name={{ item }} executable=/usr/local/bin/pip3
 #  sudo: yes
 #  with_items:

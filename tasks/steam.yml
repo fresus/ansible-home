@@ -1,7 +1,4 @@
-#- name: steam repo
-#  apt_repository: repo="deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
-#  sudo: yes
-- name: steam repo
+- name: config steam repo
   lineinfile: 
     dest: /etc/apt/sources.list.d/steam.list
     create: yes
@@ -10,9 +7,11 @@
     group: root
     line: "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
   sudo: yes
-- name: steam key
+
+- name: install steam key
   apt_key: url=http://repo.steampowered.com/steam/signature.gpg
   sudo: yes
-- name: steam package
+
+- name: install steam package
   apt: name=steam-launcher update_cache=yes
   sudo: yes
