@@ -14,6 +14,7 @@
     - include: tasks/vim.yml tags=vim,programing
     - include: tasks/git.yml tags=git,programing
     - include: tasks/python.yml tags=python,programing
+    - include: tasks/weechat.yml tags=weechat,desktop
     - include: tasks/dropbox.yml tags=dropbox,desktop
     - include: tasks/virtualbox.yml tags=virtualbox,desktop 
     - include: tasks/spotify.yml tags=spotify,desktop
