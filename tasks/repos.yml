@@ -3,6 +3,10 @@
   sudo: yes
   when: ansible_distribution == 'Ubuntu'
 
+- name: create empty sources.list
+  file: path=/etc/apt/sources.list state=touch
+  sudo: yes
+
 - name: config distro repo
   apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }} main universe restricted multiverse"
   sudo: yes
