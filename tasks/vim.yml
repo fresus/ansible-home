@@ -2,9 +2,10 @@
   apt: name=vim-nox update_cache=yes
   sudo: yes
 
-- name: link vim config
-  command: "/usr/bin/{{ stow_program }} vim"
-  args:
-    chdir: "{{ dotfiles_path }}"
-#- name: install vim distribution
-#  command: 'vim +PlugUpgrade +PlugUpdate +qall'
+#- name: link vim config
+#  command: "/usr/bin/{{ stow_program }} vim"
+#  args:
+#    chdir: "{{ dotfiles_path }}"
+
+- name: install vim distribution
+  command: 'vim +PlugUpgrade +PlugUpdate +qall'
