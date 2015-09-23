@@ -1,4 +1,6 @@
----
+- name: install sudo package
+  apt: name=sudo
+
 - name: current user can sudo without password
   sudo: yes
   lineinfile: 
