@@ -1,3 +1,14 @@
 dotfiles_git: git@github.com:fresus/dotfiles.git
 dotfiles_path: "{{ lookup('env', 'HOME') }}/.dotfiles"
 stow_program: xstow
+install_packages:
+  server:
+    - htop
+    - curl
+    - mtr-tiny
+    - pv
+  programing:
+    - shellcheck
+  desktop:
+    - whois
+    - pwgen

@@ -18,3 +18,6 @@
     - include: tasks/virtualbox.yml tags=virtualbox,desktop 
     - include: tasks/spotify.yml tags=spotify,desktop
     - include: tasks/steam.yml tags=steam,desktop
+    - include: tasks/install_packages.yml packages={{ install_packages.server }} tags=packages,server
+    - include: tasks/install_packages.yml packages={{ install_packages.programing }} tags=packages,programing
+    - include: tasks/install_packages.yml packages={{ install_packages.desktop }} tags=packages,desktop
