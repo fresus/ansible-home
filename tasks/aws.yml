@@ -1,0 +1,7 @@
+- name: install aws tools
+  pip: name=awscli state=latest executable=pip3
+  sudo: yes
+
+- name: install s3cmd
+  apt: name=s3cmd
+  sudo: yes

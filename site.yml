@@ -11,6 +11,7 @@
     - include: tasks/ssh.yml tags=ssh,server
     - include: tasks/tmux.yml tags=tmux,server
     - include: tasks/zsh.yml tags=zsh,server
+    - include: tasks/aws.yml tags=aws,server
     - include: tasks/vim.yml tags=vim,programing
     - include: tasks/git.yml tags=git,programing
     - include: tasks/python.yml tags=python,programing
