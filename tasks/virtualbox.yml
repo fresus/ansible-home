@@ -9,3 +9,7 @@
 - name: install virtualbox package
   apt: name=virtualbox update_cache=yes
   sudo: yes
+
+- name: add actual user to vboxusers
+  user: name={{ ansible_ssh_user }} groups=vboxusers
+  sudo: yes
