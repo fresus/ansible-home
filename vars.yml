@@ -12,3 +12,4 @@ install_packages:
   desktop:
     - whois
     - pwgen
+    - keepassx
