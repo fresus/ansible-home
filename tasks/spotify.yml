@@ -3,7 +3,7 @@
   sudo: yes
 
 - name: install spotify key
-  apt_key: keyserver=keyserver.ubuntu.com id=94558F59
+  apt_key: keyserver=keyserver.ubuntu.com id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
   sudo: yes
 
 - name: install spotify package

@@ -2,6 +2,10 @@
   pip: name=awscli state=latest executable=pip3
   sudo: yes
 
+- name: install supercharged aws 
+  pip: name=saws state=latest executable=pip3
+  sudo: yes
+
 - name: install s3cmd
   apt: name=s3cmd
   sudo: yes
