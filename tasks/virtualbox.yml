@@ -11,5 +11,5 @@
   become: yes
 
 - name: add actual user to vboxusers
-  user: name={{ ansible_ssh_user }} groups=vboxusers
+  user: name={{ ansible_user_id }} groups=vboxusers
   become: yes

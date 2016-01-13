@@ -8,5 +8,5 @@
     chdir: "{{ dotfiles_path }}"
 
 - name: change actual user shell
-  user: name={{ ansible_ssh_user }} shell=/bin/zsh
+  user: name={{ ansible_user_id }} shell=/bin/zsh
   become: yes
