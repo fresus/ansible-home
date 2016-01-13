@@ -1,6 +1,6 @@
 - name: install python packages
   apt: name={{ item }}
-  sudo: yes
+  become: yes
   with_items:
     - python-dev
     - python-pip
@@ -11,14 +11,14 @@
 
 - name: update pip 
   pip: name=pip state=latest executable=/usr/bin/{{ item }}
-  sudo: yes
+  become: yes
   with_items:
     - pip
     - pip3
 
 #- name: install python 3 pypi packages
 #  pip: name={{ item }} executable=/usr/local/bin/pip3
-#  sudo: yes
+#  become: yes
 #  with_items:
 #    - virtualenv
 #    - virtualenvwrapper

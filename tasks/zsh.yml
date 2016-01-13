@@ -1,6 +1,6 @@
 - name: install zsh
   apt: name=zsh update_cache=yes
-  sudo: yes
+  become: yes
 
 - name: link zsh config
   command: "/usr/bin/{{ stow_program }} zsh"
@@ -9,4 +9,4 @@
 
 - name: change actual user shell
   user: name={{ ansible_ssh_user }} shell=/bin/zsh
-  sudo: yes
+  become: yes

@@ -1,4 +1,4 @@
 - name: install packages
   apt: name={{ item }} update_cache=yes
-  sudo: yes
+  become: yes
   with_items: "{{ packages }}"

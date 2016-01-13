@@ -2,7 +2,7 @@
   apt: name=sudo
 
 - name: current user can sudo without password
-  sudo: yes
+  become: yes
   lineinfile: 
     dest: /etc/sudoers.d/{{ ansible_ssh_user }}
     create: yes

@@ -1,6 +1,6 @@
 - name: install git
   apt: name=git update_cache=yes
-  sudo: yes
+  become: yes
 
 - name: link git config
   command: "/usr/bin/{{ stow_program }} git"

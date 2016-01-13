@@ -1,6 +1,6 @@
 - name: install ssh client
   apt: name=openssh-client update_cache=yes
-  sudo: yes
+  become: yes
 
 - name: link ssh config
   command: "/usr/bin/{{ stow_program }} ssh"
