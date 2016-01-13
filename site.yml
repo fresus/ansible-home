@@ -4,22 +4,41 @@
   vars_files:
     - vars.yml
   tasks:
-    - include: tasks/repos.yml tags=repos,server
-    - include: tasks/sudo.yml tags=sudo,server
-    - include: tasks/dotfiles.yml tags=dotfiles,programing,server
-    - include: tasks/ssh.yml tags=ssh,server
-    - include: tasks/tmux.yml tags=tmux,server
-    - include: tasks/zsh.yml tags=zsh,programing
-    - include: tasks/vim.yml tags=vim,programing
-    - include: tasks/git.yml tags=git,programing
-    - include: tasks/python.yml tags=python,programing
-    - include: tasks/aws.yml tags=aws,server
-    - include: tasks/httpie.yml tags=httpie,programing
-    - include: tasks/weechat.yml tags=weechat,desktop
-    - include: tasks/dropbox.yml tags=dropbox,desktop
-    - include: tasks/virtualbox.yml tags=virtualbox,desktop 
-    - include: tasks/spotify.yml tags=spotify,desktop
-    - include: tasks/steam.yml tags=steam
-    - include: tasks/install_packages.yml packages={{ install_packages.server }} tags=packages,server
-    - include: tasks/install_packages.yml packages={{ install_packages.programing }} tags=packages,programing
-    - include: tasks/install_packages.yml packages={{ install_packages.desktop }} tags=packages,desktop
+    - include: tasks/repos.yml 
+      tags: [ repos, server ]
+    - include: tasks/sudo.yml 
+      tags: [ sudo, server ]
+    - include: tasks/dotfiles.yml 
+      tags: [ dotfiles, programing, server ]
+    - include: tasks/ssh.yml 
+      tags: [ ssh, server ]
+    - include: tasks/tmux.yml 
+      tags: [ tmux, server ]
+    - include: tasks/zsh.yml
+      tags: [ zsh, programing ]
+    - include: tasks/vim.yml
+      tags: [ vim, programing ]
+    - include: tasks/git.yml
+      tags: [ git, programing ]
+    - include: tasks/python.yml
+      tags: [ python, programing ]
+    - include: tasks/aws.yml
+      tags: [ aws, server ]
+    - include: tasks/httpie.yml
+      tags: [ httpie, programing ]
+    - include: tasks/weechat.yml
+      tags: [ weechat, desktop ]
+    - include: tasks/dropbox.yml
+      tags: [ dropbox, desktop ]
+    - include: tasks/virtualbox.yml
+      tags: [ virtualbox, desktop ]
+    - include: tasks/spotify.yml
+      tags: [ spotify, desktop ]
+    - include: tasks/steam.yml
+      tags: [ steam ]
+    - include: tasks/install_packages.yml packages={{ install_packages.server }}
+      tags: [ packages, server ]
+    - include: tasks/install_packages.yml packages={{ install_packages.programing }}
+      tags: [ packages, programing ]
+    - include: tasks/install_packages.yml packages={{ install_packages.desktop }}
+      tags: [ packages, desktop ]
