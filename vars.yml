@@ -7,7 +7,7 @@ install_packages:
     - curl
     - mtr-tiny
     - pv
-    - systat
+    - sysstat
   programing:
     - shellcheck
   desktop:
