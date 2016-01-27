@@ -2,7 +2,7 @@
   apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
   become: yes
 
-- name: install virtualbox key
+- name: install virtualbox repo key
   apt_key: url=https://www.virtualbox.org/download/oracle_vbox.asc 
   become: yes
 

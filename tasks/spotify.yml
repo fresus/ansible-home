@@ -2,7 +2,7 @@
   apt_repository: repo="deb http://repository.spotify.com stable non-free"
   become: yes
 
-- name: install spotify key
+- name: install spotify repo key
   apt_key: keyserver=keyserver.ubuntu.com id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
   become: yes
 

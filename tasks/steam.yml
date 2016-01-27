@@ -8,7 +8,7 @@
     line: "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
   become: yes
 
-- name: install steam key
+- name: install steam repo key
   apt_key: url=http://repo.steampowered.com/steam/signature.gpg
   become: yes
 
