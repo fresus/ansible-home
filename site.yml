@@ -24,6 +24,8 @@
       tags: [ python, programing ]
     - include: tasks/aws.yml
       tags: [ aws, server ]
+    - include: tasks/docker.yml
+      tags: [ docker ]
     - include: tasks/httpie.yml
       tags: [ httpie, programing ]
     - include: tasks/weechat.yml

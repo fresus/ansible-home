@@ -1,0 +1,12 @@
+
+- name: configure docker repo
+  apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
+  become: yes
+
+- name: install docker repo key
+  apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D
+  become: yes
+
+- name: install docker package
+  apt: name=docker-engine update_cache=yes
+  become: yes
