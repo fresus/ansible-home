@@ -10,3 +10,7 @@
 - name: install docker package
   apt: name=docker-engine update_cache=yes
   become: yes
+
+- name: add actual user to docker group
+  user: name={{ ansible_user_id }} groups=docker
+  become: yes
