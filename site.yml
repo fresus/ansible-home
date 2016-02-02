@@ -20,8 +20,10 @@
       tags: [ vim, programing ]
     - include: tasks/git.yml
       tags: [ git, programing ]
-    - include: tasks/python.yml
-      tags: [ python, programing ]
+    - include: tasks/pip.yml
+      tags: [ pip, programing, server ]
+    - include: tasks/pip3.yml
+      tags: [ pip3, programing, server ]
     - include: tasks/aws.yml
       tags: [ aws, server ]
     - include: tasks/docker.yml
