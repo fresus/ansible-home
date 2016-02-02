@@ -12,7 +12,7 @@
   become: yes
 
 - name: add actual user to docker group
-  user: name={{ ansible_user_id }} groups=docker
+  user: name={{ ansible_user_id }} groups=docker append=yes
   become: yes
 
 - name: install docker compose
