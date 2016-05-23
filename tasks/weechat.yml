@@ -1,5 +1,9 @@
 - name: config weechat repo
-  apt_repository: repo="ppa:nesthib/weechat-stable"
+  apt_repository: repo="deb https://weechat.org/ubuntu {{ ansible_distribution_release }} main"
+  become: yes
+
+- name: install weechat repo key
+  apt_key: keyserver=pool.sks-keyservers.net id=11E9DE8848F2B65222AA75B8D1820DB22A11534E
   become: yes
 
 - name: install weechat package
