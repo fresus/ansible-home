@@ -1,10 +1,4 @@
 - block:
-    - name: delete main sources.list
-      file: path=/etc/apt/sources.list state=absent
-
-    - name: create empty sources.list
-      file: path=/etc/apt/sources.list state=touch
-
     - name: config distro repo
       apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }} main universe restricted multiverse"
 
@@ -16,6 +10,12 @@
 
     - name: config backports repo
       apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}-backports main universe restricted multiverse"
+
+    - name: delete main sources.list
+      file: path=/etc/apt/sources.list state=absent
+
+    - name: create empty sources.list
+      file: path=/etc/apt/sources.list state=touch
 
   when: ansible_distribution == "Ubuntu"
   become: yes
