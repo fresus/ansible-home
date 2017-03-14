@@ -1,20 +1,18 @@
 
-- name: configure docker repo
-  apt_repository: repo="deb https://apt.dockerproject.org/repo {{ ansible_distribution | lower }}-{{ ansible_distribution_release }} main"
-  become: yes
+- block:
+    - name: configure docker repo
+      apt_repository: repo="deb https://apt.dockerproject.org/repo {{ ansible_distribution | lower }}-{{ ansible_distribution_release }} main"
 
-- name: install docker repo key
-  apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D
-  become: yes
+    - name: install docker repo key
+      apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D
 
-- name: install docker package
-  apt: name=docker-engine update_cache=yes
-  become: yes
+    - name: install docker package
+      apt: name=docker-engine update_cache=yes
 
-- name: add actual user to docker group
-  user: name={{ ansible_user_id }} groups=docker append=yes
-  become: yes
+    - name: add actual user to docker group
+      user: name={{ ansible_user_id }} groups=docker append=yes
 
-- name: install docker compose
-  pip: name=docker-compose
+    - name: install docker compose
+      pip: name=docker-compose
   become: yes
+  when: ansible_os_family == 'Debian'

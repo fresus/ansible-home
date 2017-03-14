@@ -1,6 +1,8 @@
+
 - name: install ssh client
   apt: name=openssh-client update_cache=yes
   become: yes
+  when: ansible_os_family == 'Debian'
 
 - name: link ssh config
   command: "/usr/bin/{{ stow_program }} ssh"

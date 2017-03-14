@@ -1,11 +1,13 @@
+
 - name: install aws tools
   pip: name=awscli state=latest executable=pip3
   become: yes
 
-- name: install supercharged aws 
+- name: install supercharged aws
   pip: name=saws state=latest executable=pip3
   become: yes
 
 - name: install s3cmd
   apt: name=s3cmd
   become: yes
+  when: ansible_os_family == 'Debian'
