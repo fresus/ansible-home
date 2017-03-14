@@ -1,3 +1,4 @@
+
 - block:
     - name: config distro repo
       apt_repository: repo="deb http://es.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }} main universe restricted multiverse"

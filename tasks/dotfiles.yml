@@ -1,6 +1,8 @@
-- name: install stow 
+
+- name: install stow
   apt: name={{ stow_program }} state=present
   become: yes
+  when: ansible_os_family == 'Debian'
 
 - name: clone dotfiles repo
   git: repo={{ dotfiles_git }} dest={{ dotfiles_path }} accept_hostkey=yes

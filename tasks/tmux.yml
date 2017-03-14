@@ -1,6 +1,8 @@
+
 - name: install tmux
   apt: name=tmux update_cache=yes
   become: yes
+  when: ansible_os_family == 'Debian'
 
 - name: link tmux config
   command: "/usr/bin/{{ stow_program }} tmux"

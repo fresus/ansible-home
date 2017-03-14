@@ -1,15 +1,15 @@
-- name: config virtualbox repo
-  apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
-  become: yes
 
-- name: install virtualbox repo key
-  apt_key: url=https://www.virtualbox.org/download/oracle_vbox_2016.asc
-  become: yes
+- block:
+    - name: config virtualbox repo
+      apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
 
-- name: install virtualbox package
-  apt: name=virtualbox update_cache=yes
-  become: yes
+    - name: install virtualbox repo key
+      apt_key: url=https://www.virtualbox.org/download/oracle_vbox.asc
 
-- name: add actual user to vboxusers
-  user: name={{ ansible_user_id }} groups=vboxusers append=yes
+    - name: install virtualbox package
+      apt: name=virtualbox-5.1 update_cache=yes
+
+    - name: add actual user to vboxusers
+      user: name={{ ansible_user_id }} groups=vboxusers append=yes
   become: yes
+  when: ansible_os_family == 'Debian'

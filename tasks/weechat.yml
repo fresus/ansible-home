@@ -1,14 +1,12 @@
-- name: config weechat repo
-  apt_repository: repo="deb https://weechat.org/ubuntu {{ ansible_distribution_release }} main"
-  become: yes
 
-- name: install weechat repo key
-  apt_key: keyserver=pool.sks-keyservers.net id=11E9DE8848F2B65222AA75B8D1820DB22A11534E
-  become: yes
+- block:
+    - name: config weechat repo
+      apt_repository: repo="deb https://weechat.org/ubuntu {{ ansible_distribution_release }} main"
 
-- name: install weechat package
-  apt: name={{ item }} update_cache=yes
+    - name: install weechat package
+      apt: name={{ item }} update_cache=yes
+      with_items:
+        - weechat-curses
+        - weechat-plugins
   become: yes
-  with_items:
-    - weechat-curses
-    - weechat-plugins
+  when: ansible_os_family == 'Debian'

@@ -1,6 +1,8 @@
+
 - name: install git
   apt: name=git update_cache=yes
   become: yes
+  when: ansible_os_family == 'Debian'
 
 - name: link git config
   command: "/usr/bin/{{ stow_program }} git"

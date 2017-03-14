@@ -1,10 +1,12 @@
-- name: install pip related packages
-  apt: name={{ item }}
-  become: yes
-  with_items:
-    - python-dev
-    - python-pip
 
-- name: update pip 
-  pip: name=pip state=latest executable=/usr/bin/pip
+- block:
+    - name: install pip related packages
+      apt: name={{ item }}
+      with_items:
+        - python-dev
+        - python-pip
+
+    - name: update pip
+      pip: name=pip state=latest executable=/usr/bin/pip
   become: yes
+  when: ansible_os_family == 'Debian'
