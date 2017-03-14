@@ -5,6 +5,6 @@
   when: ansible_os_family == 'Debian'
 
 - name: link git config
-  command: "/usr/bin/{{ stow_program }} git"
+  command: "{{ stow_program }} git"
   args:
     chdir: "{{ dotfiles_path }}"

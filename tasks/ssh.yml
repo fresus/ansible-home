@@ -5,6 +5,6 @@
   when: ansible_os_family == 'Debian'
 
 - name: link ssh config
-  command: "/usr/bin/{{ stow_program }} ssh"
+  command: "{{ stow_program }} ssh"
   args:
     chdir: "{{ dotfiles_path }}"

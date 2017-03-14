@@ -5,6 +5,6 @@
   when: ansible_os_family == 'Debian'
 
 - name: link tmux config
-  command: "/usr/bin/{{ stow_program }} tmux"
+  command: "{{ stow_program }} tmux"
   args:
     chdir: "{{ dotfiles_path }}"
