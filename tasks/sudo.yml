@@ -13,5 +13,19 @@
         regexp: "^{{ ansible_user_id }}"
         line: "{{ ansible_user_id }} ALL=(ALL) NOPASSWD:ALL"
         validate: "/usr/sbin/visudo -cf %s"
+
   become: yes
   when: ansible_os_family == 'Debian'
+
+- name: current user can sudo without password
+  lineinfile:
+    dest: /etc/sudoers.d/{{ ansible_user_id }}
+    create: yes
+    mode: 0440
+    owner: root
+    group: admin
+    regexp: "^{{ ansible_user_id }}"
+    line: "{{ ansible_user_id }} ALL=(ALL) NOPASSWD:ALL"
+    validate: "/usr/sbin/visudo -cf %s"
+  become: yes
+  when: ansible_distribution == 'MacOSX'
