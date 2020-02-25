@@ -5,5 +5,9 @@
 ```
 git clone https://github.com/fresus/ansible-home 
 cd ansible-home
-ansible-playbook -K -i "localhost," site.yml
+ansible-playbook site.yml \
+  -i "localhost," \
+  -c local \
+  -e ansible_python_interpreter=$(which python) \
+  -D -K
 ```
