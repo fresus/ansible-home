@@ -5,4 +5,8 @@
   when: ansible_os_family == 'Debian'
 
 - name: clone dotfiles repo
-  git: repo={{ dotfiles_git }} dest={{ dotfiles_path }} accept_hostkey=yes
+  git:
+    repo: "{{ dotfiles_git }}"
+    dest: "{{ dotfiles_path }}"
+    track_submodules: yes
+    accept_hostkey: yes
