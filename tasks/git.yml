@@ -1,6 +1,10 @@
 
 - name: install git
-  apt: name=git update_cache=yes
+  apt:
+    name:
+      - git
+      - git-extras
+    update_cache: yes
   become: yes
   when: ansible_os_family == 'Debian'
 
