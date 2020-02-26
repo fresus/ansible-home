@@ -18,6 +18,10 @@
       tags: [ pip, programing, server ]
     - include: tasks/pip3.yml
       tags: [ pip3, programing, server ]
+    - include: tasks/homebrew.yml packages={{ install_homebrew_packages }}
+      tags: [ homebrew, programing ]
+    - include: tasks/install_homebrew_packages.yml
+      tags: [ homebrew_packages, programing ]
     - include: tasks/zsh.yml
       tags: [ zsh, programing ]
     - include: tasks/vim.yml
@@ -46,3 +50,5 @@
       tags: [ packages, programing ]
     - include: tasks/install_packages.yml packages={{ install_packages.desktop }}
       tags: [ packages, desktop ]
+    - include: tasks/asdf.yml
+      tags: [ asdf ]

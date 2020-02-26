@@ -17,3 +17,14 @@ install_packages:
     - whois
     - keepassx
     - adb
+install_homebrew_packages:
+  - fzf
+  - fd
+  - diff-so-fancy
+  - httpie
+  - kubectl
+install_asdf_plugins:
+  - helm
+  - kops
+  - terraform
+  - terragrunt

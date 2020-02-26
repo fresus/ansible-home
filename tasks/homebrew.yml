@@ -1,0 +1,27 @@
+
+- block:
+  - name: install dependencies
+    apt: 
+      name: 
+        - build-essential
+        - curl
+        - file
+        - git
+      update_cache: yes
+    become: yes
+  
+  - name: download installer
+    get_url:
+      url: https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh 
+      dest: /tmp/install.sh
+      mode: 0775
+
+  - name: run installer
+    shell: /tmp/install.sh
+
+  - name: remove installer
+    file: 
+      path: /tmp/install.sh
+      state: absent
+
+  when: ansible_os_family == 'Debian'

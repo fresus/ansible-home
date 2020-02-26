@@ -1,0 +1,29 @@
+
+- name: install dependencies
+  apt:
+    name:
+    - automake
+    - autoconf
+    - libreadline-dev
+    - libncurses-dev
+    - libssl-dev
+    - libyaml-dev
+    - libxslt-dev
+    - libffi-dev
+    - libtool
+    - unixodbc-dev
+    - unzip
+    - curl
+
+- name: clone repo
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ lookup('env', 'HOME') }}/.asdf"
+    version: "v0.7.6"
+    accept_hostkey: yes
+
+- name: install plugins
+  command: "asdf plugin add {{ item }}"
+  args:
+    creates: "{{ lookup('env', 'HOME') }}/.asdf/plugins/{{ item }}"
+  with_items: "{{ install_asdf_plugins }}"
