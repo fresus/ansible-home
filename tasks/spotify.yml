@@ -1,13 +1,18 @@
 
 - block:
+    - name: install spotify repo key
+      apt_key:
+        url: https://download.spotify.com/debian/pubkey.gpg
+
     - name: config spotify repo
       apt_repository: repo="deb http://repository.spotify.com stable non-free"
 
-    - name: install spotify repo key
-      apt_key: keyserver=keyserver.ubuntu.com id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
-
-    - name: install spotify package
-      apt: name=spotify-client update_cache=yes
+    - name: install spotify packages
+      apt:
+        name:
+          - spotify-client
+          - spotify-client-gnome-support
+        update_cache: yes
 
   become: yes
   when: ansible_os_family == 'Debian'
