@@ -18,11 +18,11 @@ install_packages:
     - keepassx
     - adb
 install_homebrew_packages:
-  - fzf
-  - fd
   - diff-so-fancy
-  - httpie
-  - kubectl
+  - fd
+  - fzf
+  - kubectx
+  - kubernetes-cli
 install_asdf_plugins:
   - helm
   - kops
