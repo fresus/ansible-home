@@ -34,6 +34,8 @@
       tags: [ virtualbox, desktop ]
     - include: tasks/spotify.yml
       tags: [ spotify, desktop ]
+    - include: tasks/signal.yml
+      tags: [ signal, desktop ]
     - include: tasks/steam.yml
       tags: [ steam ]
     - include: tasks/install_packages.yml packages={{ install_packages.server }}

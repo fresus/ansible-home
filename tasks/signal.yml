@@ -1,0 +1,14 @@
+
+- block:
+    - name: install repo key
+      apt_key:
+          url: https://updates.signal.org/desktop/apt/keys.asc
+
+    - name: config repo
+      apt_repository: repo="deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
+
+    - name: install package
+      apt: name=signal-desktop update_cache=yes
+
+  become: yes
+  when: ansible_os_family == 'Debian'
