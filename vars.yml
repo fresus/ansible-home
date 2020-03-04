@@ -12,8 +12,8 @@ install_packages:
     - shellcheck
     - fonts-powerline
     - fonts-firacode
+    - jq
   desktop:
     - whois
-    - pwgen
     - keepassx
     - adb
