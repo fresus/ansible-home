@@ -1,0 +1,13 @@
+
+- block:
+    - name: config repo
+      apt_repository: repo="deb https://deb.etcher.io stable etcher"
+
+    - name: install repo key
+      apt_key: keyserver=hkps://keyserver.ubuntu.com:443 id=379CE192D401AB61
+
+    - name: install package
+      apt: name=balena-etcher-electron update_cache=yes
+
+  become: yes
+  when: ansible_os_family == 'Debian'

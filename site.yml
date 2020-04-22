@@ -36,6 +36,8 @@
       tags: [ spotify, desktop ]
     - include: tasks/signal.yml
       tags: [ signal, desktop ]
+    - include: tasks/etcher.yml
+      tags: [ etcher, desktop ]
     - include: tasks/steam.yml
       tags: [ steam ]
     - include: tasks/install_packages.yml packages={{ install_packages.server }}
