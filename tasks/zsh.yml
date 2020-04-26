@@ -1,4 +1,9 @@
 
+- name: install dependencies
+  apt:
+    name: fzf
+  when: ansible_os_family == 'Debian'
+
 - name: install zsh
   apt: name=zsh update_cache=yes
   become: yes
