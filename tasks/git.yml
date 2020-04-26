@@ -8,6 +8,14 @@
   become: yes
   when: ansible_os_family == 'Debian'
 
+- name: install diff-highlight
+  copy:
+    src: /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+    dest: /usr/local/bin/diff-highlight
+    remote_src: yes
+    mode: 0755
+  become: yes
+
 - name: link git config
   command: "{{ stow_program }} git"
   args:
