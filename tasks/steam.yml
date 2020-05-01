@@ -1,19 +1,15 @@
 
 - block:
     - name: config steam repo
-      lineinfile:
-        dest: /etc/apt/sources.list.d/steam.list
-        create: yes
-        mode: 0644
-        owner: root
-        group: root
-        line: "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ {{ ansible_distribution_release }} steam"
+      apt_repository:
+        repo: "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
+        filename: steam
 
     - name: install steam repo key
-      apt_key: url=http://repo.steampowered.com/steam/signature.gpg
+      apt_key: url=http://repo.steampowered.com/steam/archive/precise/steam.gpg
 
     - name: install steam package
-      apt: name=steam-launcher update_cache=yes
+      apt: name=steam update_cache=yes
       ignore_errors: "{{ ansible_check_mode }}"
   become: yes
   when: ansible_os_family == 'Debian'
